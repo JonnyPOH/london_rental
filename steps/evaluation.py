@@ -43,16 +43,17 @@ def evaluation(
         mse_class = MSE()
         mse = mse_class.calculate_score(y_test, prediction)
         mlflow.log_metric("mse", mse)
-
+        print(f"MSE: {mse}")
         # Using the R2Score class for R2 score calculation
         r2_class = R2()
         r2_score = r2_class.calculate_score(y_test, prediction)
         mlflow.log_metric("r2_score", r2_score)
-
+        print(f"R2 Score: {r2_score}")
         # Using the RMSE class for root mean squared error calculation
         rmse_class = RMSE()
         rmse = rmse_class.calculate_score(y_test, prediction)
         mlflow.log_metric("rmse", rmse)
+        print(f"RMSE: {rmse}")
 
         return r2_score, rmse
     except Exception as e:
